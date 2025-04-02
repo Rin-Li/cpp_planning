@@ -7,8 +7,9 @@
 struct Node {
     Point pos;
     Node* parent;
-    Node(ftype x, ftype y): pos(x, y), parent(nullptr) {}
-    Node(Point pos): pos(pos), parent(nullptr) {}
+    int cost;
+    Node(ftype x, ftype y): pos(x, y), parent(nullptr), cost(0) {}
+    Node(Point pos): pos(pos), parent(nullptr), cost(0) {}
 };
 
 class RRT {
@@ -18,7 +19,7 @@ public:
 
     void setStart(Point start);
     void setGoal(Point goal);
-    std::vector<Point> planning();
+    virtual std::vector<Point> planning();
 
 protected:
     virtual bool isCollisionFree(const Point& from, const Point& to);
