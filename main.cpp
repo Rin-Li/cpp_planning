@@ -1,4 +1,5 @@
-#include "rrt.h"
+#include "RRT/rrt.h"
+#include "RRT/rrt_star.h"
 #include <iostream>
 #include <vector>
 
@@ -18,11 +19,11 @@ int main() {
     };
 
 
-    RRT rrt(start, goal, minRange, maxRange,
+    RRTStar rrt(start, goal, minRange, maxRange,
             5.0,   // stepSize
             0.1,   // goalSampleRate
             1000,  // maxIter
-            circles);
+            circles, 5.0);
 
 
     std::vector<Point> path = rrt.planning();

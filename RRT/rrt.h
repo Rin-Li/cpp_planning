@@ -1,13 +1,13 @@
 #ifndef RRT_H
 #define RRT_H
 
-#include "geometry.h"
+#include "geometry/geometry.h"
 #include <vector>
 
 struct Node {
     Point pos;
     Node* parent;
-    int cost;
+    ftype cost;
     Node(ftype x, ftype y): pos(x, y), parent(nullptr), cost(0) {}
     Node(Point pos): pos(pos), parent(nullptr), cost(0) {}
 };
