@@ -15,7 +15,8 @@ struct Node {
 class RRT {
 public:
     RRT(Point start, Point goal, Point minRange, Point maxRange,
-        ftype stepSize, ftype goalSampleRate, ftype maxIter, std::vector<Circle> circles);
+        ftype stepSize, ftype goalSampleRate, ftype maxIter, 
+        std::vector<Circle> circles, ftype search_radius=0.0);
 
     void setStart(Point start);
     void setGoal(Point goal);
@@ -27,12 +28,14 @@ protected:
     Point getRandomPoint();
     Node* getNearestNode(const Point& point);
     Point stepFromTo(const Point& from, const Point& to, ftype stepSize);
+    std::vector<Node*> getNearNodes(Node* newNode);
 
     Point startPoint, goalPoint;
     Point minRange, maxRange;
     ftype stepSize;
     ftype goalSampleRate;
     ftype maxIter;
+    ftype search_radius;
 
     Node* startNode;
     Node* goalNode;

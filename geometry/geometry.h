@@ -20,6 +20,16 @@ struct Point {
     bool operator==(const Point& p) const;
 };
 
+struct SimpleCar{
+    Point center;
+    ftype yaw;
+    ftype length;
+    ftype width;
+    //Four corners of the car
+    std::vector<Point> getVertices() const;
+
+};
+
 Point operator*(ftype a, const Point& b);
 
 ftype distance(const Point& a, const Point& b);

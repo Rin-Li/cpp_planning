@@ -5,9 +5,10 @@
 
 
 RRT::RRT(Point start, Point goal, Point minRange, Point maxRange, 
-ftype stepSize, ftype goalSampleRate, ftype maxIter, std::vector<Circle> circles):
+ftype stepSize, ftype goalSampleRate, 
+ftype maxIter, std::vector<Circle> circles, ftype search_radius) :
     startPoint(start), goalPoint(goal), minRange(minRange), maxRange(maxRange),
-    stepSize(stepSize), goalSampleRate(goalSampleRate), maxIter(maxIter), circles(circles) {
+    stepSize(stepSize), goalSampleRate(goalSampleRate), maxIter(maxIter), circles(circles), search_radius(search_radius) {
         std::ofstream obsFile("obstacles.csv");
             for (const auto& c : circles) {
                 obsFile << c.center.x << "," << c.center.y << "," << c.radius << "\n";
@@ -77,6 +78,7 @@ Point RRT::stepFromTo(const Point& from, const Point& to, ftype stepSize){
     }
     return from + vectorFromTo / distanceFromTo * stepSize;
 }
+
 
 std::vector<Point> RRT::planning(){
 

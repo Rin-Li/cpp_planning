@@ -2,11 +2,6 @@
 #include <iostream>
 #include <fstream> 
 
-RRTStar::RRTStar(Point start, Point goal, Point minRange, Point maxRange,
-                 double stepSize, double goalSampleRate, double maxIter,
-                 std::vector<Circle> circles, double search_radius)
-    : RRT(start, goal, minRange, maxRange, stepSize, goalSampleRate, maxIter, circles),
-      search_radius(search_radius) {}
 
 std::vector<Point> RRTStar::planning(){
     for(int i = 0; i < maxIter; i++){
@@ -60,7 +55,7 @@ std::vector<Point> RRTStar::planning(){
     return path;
 }
 
-std::vector<Node*> RRTStar::getNearNodes(Node* newNode){
+std::vector<Node*> RRT::getNearNodes(Node* newNode){
     std::vector<Node*> nearNodes;
     for (const auto& node : nodes){
         if(distance(node->pos, newNode->pos) < search_radius){
