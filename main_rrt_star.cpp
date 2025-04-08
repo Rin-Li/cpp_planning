@@ -15,7 +15,11 @@ int main() {
 
     std::vector<Circle> circles = {
         Circle(Point(50, 50), 10),
-        Circle(Point(70, 70), 5)
+        Circle(Point(70, 70), 5),
+        Circle(Point(30, 30), 8),
+        Circle(Point(20, 80), 6),
+        Circle(Point(80, 20), 7),
+        Circle(Point(60, 40), 4)
     };
 
 

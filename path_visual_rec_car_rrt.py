@@ -59,5 +59,5 @@ for i in range(len(path) - 1):
 ax.set_aspect('equal')
 ax.grid(True)
 ax.legend()
-ax.set_title("RRT Path with Rotated Rectangle Obstacles and Cars")
+ax.set_title("RRT Path with Rectangle Obstacles and Simple Cars")
 plt.show()
