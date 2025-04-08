@@ -18,6 +18,7 @@ struct Point {
     Point operator-(const Point& p) const;
     Point operator*(ftype t) const;
     Point operator/(ftype t) const;
+    Point operator-() const;
     bool operator==(const Point& p) const;
 };
 
@@ -38,6 +39,7 @@ Point operator*(ftype a, const Point& b);
 ftype distance(const Point& a, const Point& b);
 ftype dot(const Point& a, const Point& b);
 ftype cross(const Point& a, const Point& b);
+Point tripleProduct(const Point& a, const Point& b, const Point& c);
 
 struct Circle {
     Point center;

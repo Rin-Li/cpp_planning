@@ -1,66 +1,57 @@
 #include "gjk.h"
+#include <iostream>
+#include <cmath>
+
 
 // Support function for GJK
 Point support(const std::vector<Point>& shape, const Point& direction) {
     // Initialize the farthest point
     ftype maxDot = -1e15;
     Point farthestPoint;
-
     for (const auto& point : shape) {
-        //Compute the dot product between the point and the direction
-        ftype dotProduct = dot(point, direction);
+        // Compute the dot product between the point and the direction
+        ftype d = dot(point, direction);
         // If the dot product is greater than the current max, update
-        if (dotProduct > maxDot) {
-            maxDot = dotProduct;
+        if (d > maxDot) {
+            maxDot = d;
             farthestPoint = point;
         }
     }
-
     return farthestPoint;
 }
 
-bool handleSimplex(std::vector<Point>& simplex, Point& direction){
-    // Check the size of the simplex,
-    // if it is 3, we need to check the orientation
-    // if it is 2 return false
-    if(simplex.size() == 2){
+// Handle the simplex and update the search direction
+bool handleSimplex(std::vector<Point>& simplex, Point& direction) {
+    // 2 Points
+    if (simplex.size() == 2) {
         Point A = simplex[1];
         Point B = simplex[0];
         Point AB = B - A;
+        Point AO = -A;
         // New direction
-        direction = Point(-AB.y, AB.x);
-        // Perpendicular and also pointing to the origin
-        if (dot(direction, Point(-A.x, -A.y)) < 0){
-            direction = Point(direction.x, direction.y);
+        direction = tripleProduct(AB, AO, AB);
+        if (std::abs(dot(direction, direction)) < 1e-8) {
+            // if the computed direction is nearly zero, choose a perpendicular direction
+            direction = Point(-AB.y, AB.x);
         }
     } else if (simplex.size() == 3) {
-        // A is the point every time new.
+        // 3 points, A alway the newest point
         Point A = simplex[2];
         Point B = simplex[1];
         Point C = simplex[0];
-
+        Point AO = -A;
         Point AB = B - A;
         Point AC = C - A;
-        Point AO = Point(-A.x, -A.y);
-
-        Point ABperp = Point(-AB.y, AB.x);
-        // Check if the perpendicular is pointing to the origin
-        // If not, reverse the direction, search other part
-        if (dot(ABperp, AO) < 0){
-            ABperp = Point(-ABperp.x, -ABperp.y);
-        }
-
-        Point ACperp = Point(AC.y, -AC.x);
-        if (dot(ACperp, AO) < 0){
-            ACperp = Point(-ACperp.x, -ACperp.y);
-        }
-
-        // Again, check the original
+        // Perpendicular directions
+        Point ABperp = tripleProduct(AC, AB, AB);
+        Point ACperp = tripleProduct(AB, AC, AC);
+        // Check if the origin is in the region of AB or AC
         if (dot(ABperp, AO) > 0) {
-            simplex = {B, A};
+            simplex.erase(simplex.begin());
             direction = ABperp;
-        } else if (dot(ACperp, AO) > 0) {
-            simplex = {C, A};
+        }
+        else if (dot(ACperp, AO) > 0) {
+            simplex.erase(simplex.begin() + 1);
             direction = ACperp;
         } else {
             return true; 
@@ -71,35 +62,26 @@ bool handleSimplex(std::vector<Point>& simplex, Point& direction){
 
 bool gjk(const std::vector<Point>& shape1, const std::vector<Point>& shape2) {
     // Initialize direction and simplex
-    Point direction = Point(1, 0);
+    Point direction(1, 0);
     std::vector<Point> simplex;
-    Point fathestPointShape1 = support(shape1, direction);
-    Point fathestPointShape2 = support(shape2, Point(-direction.x, -direction.y));
-    Point A = fathestPointShape1 - fathestPointShape2;
-    simplex.push_back(A);
+    Point pointA = support(shape1, direction) - support(shape2, -direction);
+    simplex.push_back(pointA);
     // Update direction
-    direction = Point(-A.x, -A.y);
+    direction = -pointA;
 
-    for(int iter = 0; iter < 100; ++iter) {
+    for (int i = 0; i < 100; ++i) {
         // Get the new point
-        fathestPointShape1 = support(shape1, direction);
-        fathestPointShape2 = support(shape2, Point(-direction.x, -direction.y));
-        A = fathestPointShape1 - fathestPointShape2;
-
-        // Check if the new point is in the direction of the origin
-        if (dot(A, direction) < 0) {
-            return false; // No collision
+        Point newPoint = support(shape1, direction) - support(shape2, -direction);
+        // If the new point is not past the origin in the given direction, there's no collision
+        if (dot(newPoint, direction) < 0) {
+            return false; 
         }
-
         // Add the new point to the simplex
-        simplex.push_back(A);
-
-        // Handle the simplex
+        simplex.push_back(newPoint);
+        // if collision is detected, return true
         if (handleSimplex(simplex, direction)) {
-             // Collision detected
             return true;
         }
     }
-
     return false;
 }

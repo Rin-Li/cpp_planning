@@ -8,8 +8,8 @@ CAR_LENGTH = 4.0
 CAR_WIDTH = 2.0
 
 
-path = pd.read_csv('rrt_path.csv', header=None, names=["x", "y"])
-obstacles = pd.read_csv('obstacles.csv', header=None, names=["x", "y", "yaw", "length", "width"])
+path = pd.read_csv('output/rrt_path.csv', header=None, names=["x", "y"])
+obstacles = pd.read_csv('output/rectangle_obstacles.csv', header=None, names=["x", "y", "yaw", "length", "width"])
 
 
 fig, ax = plt.subplots(figsize=(8, 6))

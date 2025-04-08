@@ -7,8 +7,10 @@ Point& Point::operator/=(ftype t){ x /= t; y /= t; return *this; }
 
 Point Point::operator+(const Point& p) const { return Point(*this) += p; }
 Point Point::operator-(const Point& p) const { return Point(*this) -= p; }
+Point Point::operator-() const { return Point(-x, -y); }
 Point Point::operator*(ftype t) const { return Point(*this) *= t; }
 Point Point::operator/(ftype t) const { return Point(*this) /= t; }
+
 // Rectangle car
 std::vector<Point> Rectangle::getVertices() const {
     std::vector<Point> corners(4);
@@ -37,6 +39,7 @@ bool Point::operator==(const Point& p) const {
 
 Point operator*(ftype a, const Point& b) { return b * a; }
 
+
 ftype distance(const Point& a, const Point& b){
     return std::sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
 }
@@ -47,6 +50,12 @@ ftype dot(const Point& a, const Point& b){
 
 ftype cross(const Point& a, const Point& b){
     return a.x * b.y - a.y * b.x;
+}
+
+Point tripleProduct(const Point& a, const Point& b, const Point& c) {
+    ftype ac = dot(a, c);
+    ftype bc = dot(b, c);
+    return b * ac - a * bc;
 }
 // Collision with circle or not
 bool isSegmentIntersectCircle(const Point& from, const Point& to, const Circle& circle){

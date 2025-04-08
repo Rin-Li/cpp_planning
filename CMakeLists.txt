@@ -28,3 +28,8 @@ add_executable(simple_car_exec
     ${RRT_SOURCES}
 )
 
+add_executable(collsion_test_exec
+    main_collision_test.cpp
+    ${UTIL_SOURCES}
+    ${RRT_SOURCES}
+)

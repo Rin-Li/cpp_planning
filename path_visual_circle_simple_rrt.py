@@ -3,8 +3,8 @@ import pandas as pd
 from matplotlib.patches import Circle
 
 
-path = pd.read_csv('rrt_path.csv', header=None, names=["x", "y"])
-obstacles = pd.read_csv('obstacles.csv', header=None, names=["x", "y", "r"])
+path = pd.read_csv('output/rrt_path.csv', header=None, names=["x", "y"])
+obstacles = pd.read_csv('output/circle_obstacles.csv', header=None, names=["x", "y", "r"])
 
 
 fig, ax = plt.subplots(figsize=(8, 6))

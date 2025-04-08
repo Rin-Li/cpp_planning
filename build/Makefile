@@ -142,6 +142,19 @@ simple_car_exec/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/build
 .PHONY : simple_car_exec/fast
 
+#=============================================================================
+# Target rules for targets named collsion_test_exec
+
+# Build rule for target.
+collsion_test_exec: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 collsion_test_exec
+.PHONY : collsion_test_exec
+
+# fast build rule for target.
+collsion_test_exec/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/build
+.PHONY : collsion_test_exec/fast
+
 RRT/rrt.o: RRT/rrt.cpp.o
 .PHONY : RRT/rrt.o
 
@@ -149,6 +162,7 @@ RRT/rrt.o: RRT/rrt.cpp.o
 RRT/rrt.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt.cpp.o
 .PHONY : RRT/rrt.cpp.o
 
 RRT/rrt.i: RRT/rrt.cpp.i
@@ -158,6 +172,7 @@ RRT/rrt.i: RRT/rrt.cpp.i
 RRT/rrt.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt.cpp.i
 .PHONY : RRT/rrt.cpp.i
 
 RRT/rrt.s: RRT/rrt.cpp.s
@@ -167,6 +182,7 @@ RRT/rrt.s: RRT/rrt.cpp.s
 RRT/rrt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt.cpp.s
 .PHONY : RRT/rrt.cpp.s
 
 RRT/rrt_star.o: RRT/rrt_star.cpp.o
@@ -176,6 +192,7 @@ RRT/rrt_star.o: RRT/rrt_star.cpp.o
 RRT/rrt_star.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star.cpp.o
 .PHONY : RRT/rrt_star.cpp.o
 
 RRT/rrt_star.i: RRT/rrt_star.cpp.i
@@ -185,6 +202,7 @@ RRT/rrt_star.i: RRT/rrt_star.cpp.i
 RRT/rrt_star.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star.cpp.i
 .PHONY : RRT/rrt_star.cpp.i
 
 RRT/rrt_star.s: RRT/rrt_star.cpp.s
@@ -194,6 +212,7 @@ RRT/rrt_star.s: RRT/rrt_star.cpp.s
 RRT/rrt_star.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star.cpp.s
 .PHONY : RRT/rrt_star.cpp.s
 
 RRT/rrt_star_bicycle.o: RRT/rrt_star_bicycle.cpp.o
@@ -203,6 +222,7 @@ RRT/rrt_star_bicycle.o: RRT/rrt_star_bicycle.cpp.o
 RRT/rrt_star_bicycle.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star_bicycle.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star_bicycle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star_bicycle.cpp.o
 .PHONY : RRT/rrt_star_bicycle.cpp.o
 
 RRT/rrt_star_bicycle.i: RRT/rrt_star_bicycle.cpp.i
@@ -212,6 +232,7 @@ RRT/rrt_star_bicycle.i: RRT/rrt_star_bicycle.cpp.i
 RRT/rrt_star_bicycle.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star_bicycle.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star_bicycle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star_bicycle.cpp.i
 .PHONY : RRT/rrt_star_bicycle.cpp.i
 
 RRT/rrt_star_bicycle.s: RRT/rrt_star_bicycle.cpp.s
@@ -221,6 +242,7 @@ RRT/rrt_star_bicycle.s: RRT/rrt_star_bicycle.cpp.s
 RRT/rrt_star_bicycle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/RRT/rrt_star_bicycle.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/RRT/rrt_star_bicycle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/RRT/rrt_star_bicycle.cpp.s
 .PHONY : RRT/rrt_star_bicycle.cpp.s
 
 collision/gjk.o: collision/gjk.cpp.o
@@ -230,6 +252,7 @@ collision/gjk.o: collision/gjk.cpp.o
 collision/gjk.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/collision/gjk.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/collision/gjk.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/collision/gjk.cpp.o
 .PHONY : collision/gjk.cpp.o
 
 collision/gjk.i: collision/gjk.cpp.i
@@ -239,6 +262,7 @@ collision/gjk.i: collision/gjk.cpp.i
 collision/gjk.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/collision/gjk.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/collision/gjk.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/collision/gjk.cpp.i
 .PHONY : collision/gjk.cpp.i
 
 collision/gjk.s: collision/gjk.cpp.s
@@ -248,6 +272,7 @@ collision/gjk.s: collision/gjk.cpp.s
 collision/gjk.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/collision/gjk.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/collision/gjk.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/collision/gjk.cpp.s
 .PHONY : collision/gjk.cpp.s
 
 geometry/geometry.o: geometry/geometry.cpp.o
@@ -257,6 +282,7 @@ geometry/geometry.o: geometry/geometry.cpp.o
 geometry/geometry.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/geometry/geometry.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/geometry/geometry.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/geometry/geometry.cpp.o
 .PHONY : geometry/geometry.cpp.o
 
 geometry/geometry.i: geometry/geometry.cpp.i
@@ -266,6 +292,7 @@ geometry/geometry.i: geometry/geometry.cpp.i
 geometry/geometry.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/geometry/geometry.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/geometry/geometry.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/geometry/geometry.cpp.i
 .PHONY : geometry/geometry.cpp.i
 
 geometry/geometry.s: geometry/geometry.cpp.s
@@ -275,7 +302,32 @@ geometry/geometry.s: geometry/geometry.cpp.s
 geometry/geometry.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rrt_star_exec.dir/build.make CMakeFiles/rrt_star_exec.dir/geometry/geometry.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_car_exec.dir/build.make CMakeFiles/simple_car_exec.dir/geometry/geometry.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/geometry/geometry.cpp.s
 .PHONY : geometry/geometry.cpp.s
+
+main_collision_test.o: main_collision_test.cpp.o
+.PHONY : main_collision_test.o
+
+# target to build an object file
+main_collision_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/main_collision_test.cpp.o
+.PHONY : main_collision_test.cpp.o
+
+main_collision_test.i: main_collision_test.cpp.i
+.PHONY : main_collision_test.i
+
+# target to preprocess a source file
+main_collision_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/main_collision_test.cpp.i
+.PHONY : main_collision_test.cpp.i
+
+main_collision_test.s: main_collision_test.cpp.s
+.PHONY : main_collision_test.s
+
+# target to generate assembly for a file
+main_collision_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/collsion_test_exec.dir/build.make CMakeFiles/collsion_test_exec.dir/main_collision_test.cpp.s
+.PHONY : main_collision_test.cpp.s
 
 main_rrt_star.o: main_rrt_star.cpp.o
 .PHONY : main_rrt_star.o
@@ -333,6 +385,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... collsion_test_exec"
 	@echo "... rrt_star_exec"
 	@echo "... simple_car_exec"
 	@echo "... RRT/rrt.o"
@@ -350,6 +403,9 @@ help:
 	@echo "... geometry/geometry.o"
 	@echo "... geometry/geometry.i"
 	@echo "... geometry/geometry.s"
+	@echo "... main_collision_test.o"
+	@echo "... main_collision_test.i"
+	@echo "... main_collision_test.s"
 	@echo "... main_rrt_star.o"
 	@echo "... main_rrt_star.i"
 	@echo "... main_rrt_star.s"

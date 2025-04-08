@@ -15,7 +15,7 @@ std::vector<Point> RRTStar::planning(){
             // Create a new node
             Node* newNode = new Node(newPoint);
             newNode->parent = nearestNode;
-            
+
             newNode->cost = nearestNode->cost + distance(nearestNode->pos, newPoint);
             //Get near nodes
             std::vector<Node*> nearNodes = getNearNodes(newNode);
@@ -48,7 +48,7 @@ std::vector<Point> RRTStar::planning(){
         std::reverse(path.begin(), path.end());
     }
 
-    std::ofstream outFile("rrt_path.csv");
+    std::ofstream outFile("../output/rrt_path.csv");
     for (const auto& p : path) {
         outFile << p.x << "," << p.y << "\n";
     }

@@ -12,7 +12,7 @@ std::vector<Rectangle> rectangles,ftype search_radius) :
     stepSize(stepSize), goalSampleRate(goalSampleRate), maxIter(maxIter), 
     rectangles(rectangles), circles(circles), search_radius(search_radius) {
         if (circles.size() > 0){
-            std::ofstream obsFile("obstacles.csv");
+            std::ofstream obsFile("../output/circle_obstacles.csv");
             for (const auto& c : circles) {
                 obsFile << c.center.x << "," << c.center.y << "," << c.radius << "\n";
             }
@@ -20,7 +20,7 @@ std::vector<Rectangle> rectangles,ftype search_radius) :
         }
 
         if (rectangles.size() > 0){
-            std::ofstream obsFile("obstacles.csv");
+            std::ofstream obsFile("../output/rectangle_obstacles.csv");
             for (const auto& r : rectangles) {
                 obsFile << r.center.x << "," << r.center.y << "," << r.yaw << "," << r.length << "," << r.width << "\n";
             }
@@ -131,7 +131,7 @@ std::vector<Point> RRT::planning(){
         std::reverse(path.begin(), path.end());
     }
 
-    std::ofstream outFile("rrt_path.csv");
+    std::ofstream outFile("../output/rrt_path.csv");
     for (const auto& p : path) {
         outFile << p.x << "," << p.y << "\n";
     }
