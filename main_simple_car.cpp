@@ -1,4 +1,4 @@
-#include "RRT/rrt_star_bicyle.h" 
+#include "RRT/rrt_star_bicycle.h" 
 #include <iostream>
 
 int main() {

@@ -1,4 +1,4 @@
-#include "rrt_star_bicyle.h"
+#include "rrt_star_bicycle.h"
 #include "collision/gjk.h"
 #include <iostream>
 #include <fstream> 
@@ -9,7 +9,6 @@ bool RRTStarSimpleCar::isCollisionFree(const Point& from, const Point& to) {
     ftype dx = to.x - from.x;
     ftype dy = to.y - from.y;
     ftype yaw = atan2(dy, dx);
-
     Rectangle car;
     // Check the path from to to all collision free
     const int numChecks = 10;

@@ -1,5 +1,5 @@
-#ifndef RRT_STAR_BICYLE_H
-#define RRT_STAR_BICYLE_H
+#ifndef RRT_STAR_BICYCLE_H
+#define RRT_STAR_BICYCLE_H
 
 #include "rrt_star.h"
 

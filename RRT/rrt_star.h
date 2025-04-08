@@ -11,5 +11,6 @@ class RRTStar : public RRT {
 
     protected:
     void rewire(Node* newNode, std::vector<Node*>& nearNodes);
+    
 };
 #endif

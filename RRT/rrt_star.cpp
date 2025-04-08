@@ -15,6 +15,7 @@ std::vector<Point> RRTStar::planning(){
             // Create a new node
             Node* newNode = new Node(newPoint);
             newNode->parent = nearestNode;
+            
             newNode->cost = nearestNode->cost + distance(nearestNode->pos, newPoint);
             //Get near nodes
             std::vector<Node*> nearNodes = getNearNodes(newNode);
