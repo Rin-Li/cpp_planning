@@ -11,6 +11,5 @@ class RRTStar : public RRT {
 
     protected:
     void rewire(Node* newNode, std::vector<Node*>& nearNodes);
-    ftype search_radius;
 };
 #endif

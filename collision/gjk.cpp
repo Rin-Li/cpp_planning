@@ -34,6 +34,7 @@ bool handleSimplex(std::vector<Point>& simplex, Point& direction){
             direction = Point(direction.x, direction.y);
         }
     } else if (simplex.size() == 3) {
+        // A is the point every time new.
         Point A = simplex[2];
         Point B = simplex[1];
         Point C = simplex[0];
@@ -44,7 +45,7 @@ bool handleSimplex(std::vector<Point>& simplex, Point& direction){
 
         Point ABperp = Point(-AB.y, AB.x);
         // Check if the perpendicular is pointing to the origin
-        // If not, we need to reverse the direction
+        // If not, reverse the direction, search other part
         if (dot(ABperp, AO) < 0){
             ABperp = Point(-ABperp.x, -ABperp.y);
         }
@@ -54,6 +55,7 @@ bool handleSimplex(std::vector<Point>& simplex, Point& direction){
             ACperp = Point(-ACperp.x, -ACperp.y);
         }
 
+        // Again, check the original
         if (dot(ABperp, AO) > 0) {
             simplex = {B, A};
             direction = ABperp;
@@ -64,5 +66,40 @@ bool handleSimplex(std::vector<Point>& simplex, Point& direction){
             return true; 
         }
     }
+    return false;
+}
+
+bool gjk(const std::vector<Point>& shape1, const std::vector<Point>& shape2) {
+    // Initialize direction and simplex
+    Point direction = Point(1, 0);
+    std::vector<Point> simplex;
+    Point fathestPointShape1 = support(shape1, direction);
+    Point fathestPointShape2 = support(shape2, Point(-direction.x, -direction.y));
+    Point A = fathestPointShape1 - fathestPointShape2;
+    simplex.push_back(A);
+    // Update direction
+    direction = Point(-A.x, -A.y);
+
+    for(int iter = 0; iter < 100; ++iter) {
+        // Get the new point
+        fathestPointShape1 = support(shape1, direction);
+        fathestPointShape2 = support(shape2, Point(-direction.x, -direction.y));
+        A = fathestPointShape1 - fathestPointShape2;
+
+        // Check if the new point is in the direction of the origin
+        if (dot(A, direction) < 0) {
+            return false; // No collision
+        }
+
+        // Add the new point to the simplex
+        simplex.push_back(A);
+
+        // Handle the simplex
+        if (handleSimplex(simplex, direction)) {
+             // Collision detected
+            return true;
+        }
+    }
+
     return false;
 }

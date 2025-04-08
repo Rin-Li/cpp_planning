@@ -1,5 +1,4 @@
 #include "geometry.h"
-#include <vector>
 
 Point& Point::operator+=(const Point& p){ x += p.x; y += p.y; return *this; }
 Point& Point::operator-=(const Point& p){ x -= p.x; y -= p.y; return *this; }
@@ -10,8 +9,8 @@ Point Point::operator+(const Point& p) const { return Point(*this) += p; }
 Point Point::operator-(const Point& p) const { return Point(*this) -= p; }
 Point Point::operator*(ftype t) const { return Point(*this) *= t; }
 Point Point::operator/(ftype t) const { return Point(*this) /= t; }
-
-std::vector<Point> SimpleCar::getVertices() const {
+// Rectangle car
+std::vector<Point> Rectangle::getVertices() const {
     std::vector<Point> corners(4);
 
     ftype dx = std::cos(yaw) * length / 2.0;

@@ -23,7 +23,7 @@ int main() {
             5.0,   // stepSize
             0.1,   // goalSampleRate
             1000,  // maxIter
-            circles, 5.0);
+            circles, {}, 5.0);
 
 
     std::vector<Point> path = rrt.planning();

@@ -6,14 +6,26 @@
 
 RRT::RRT(Point start, Point goal, Point minRange, Point maxRange, 
 ftype stepSize, ftype goalSampleRate, 
-ftype maxIter, std::vector<Circle> circles, ftype search_radius) :
+int maxIter, std::vector<Circle> circles, 
+std::vector<Rectangle> rectangles,ftype search_radius) :
     startPoint(start), goalPoint(goal), minRange(minRange), maxRange(maxRange),
-    stepSize(stepSize), goalSampleRate(goalSampleRate), maxIter(maxIter), circles(circles), search_radius(search_radius) {
-        std::ofstream obsFile("obstacles.csv");
+    stepSize(stepSize), goalSampleRate(goalSampleRate), maxIter(maxIter), 
+    rectangles(rectangles), circles(circles), search_radius(search_radius) {
+        if (circles.size() > 0){
+            std::ofstream obsFile("obstacles.csv");
             for (const auto& c : circles) {
                 obsFile << c.center.x << "," << c.center.y << "," << c.radius << "\n";
             }
             obsFile.close();
+        }
+
+        if (rectangles.size() > 0){
+            std::ofstream obsFile("obstacles.csv");
+            for (const auto& r : rectangles) {
+                obsFile << r.center.x << "," << r.center.y << "," << r.yaw << "," << r.length << "," << r.width << "\n";
+            }
+            obsFile.close();
+        }
         std::srand(std::time(nullptr));
         startNode = new Node(start);
         nodes.push_back(startNode);        

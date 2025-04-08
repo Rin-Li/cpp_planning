@@ -2,6 +2,7 @@
 #define GEOMETRY_H
 
 #include <cmath>
+#include <vector>
 #define ftype double
 const ftype EPS = 1e-6;
 
@@ -20,11 +21,13 @@ struct Point {
     bool operator==(const Point& p) const;
 };
 
-struct SimpleCar{
+struct Rectangle {
     Point center;
     ftype yaw;
     ftype length;
     ftype width;
+    Rectangle() {}
+    Rectangle(Point center, ftype yaw, ftype length, ftype width): center(center), yaw(yaw), length(length), width(width) {}
     //Four corners of the car
     std::vector<Point> getVertices() const;
 

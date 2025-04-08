@@ -2,7 +2,6 @@
 #define RRT_H
 
 #include "geometry/geometry.h"
-#include <vector>
 
 struct Node {
     Point pos;
@@ -15,8 +14,10 @@ struct Node {
 class RRT {
 public:
     RRT(Point start, Point goal, Point minRange, Point maxRange,
-        ftype stepSize, ftype goalSampleRate, ftype maxIter, 
-        std::vector<Circle> circles, ftype search_radius=0.0);
+        ftype stepSize, ftype goalSampleRate, int maxIter, 
+        std::vector<Circle> circles = {}, 
+        std::vector<Rectangle> rectangles = {}, 
+        ftype search_radius=0.0);
 
     void setStart(Point start);
     void setGoal(Point goal);
@@ -34,13 +35,14 @@ protected:
     Point minRange, maxRange;
     ftype stepSize;
     ftype goalSampleRate;
-    ftype maxIter;
+    int maxIter;
     ftype search_radius;
 
     Node* startNode;
     Node* goalNode;
     std::vector<Node*> nodes;
     std::vector<Circle> circles;
+    std::vector<Rectangle> rectangles;
     
 };
 
