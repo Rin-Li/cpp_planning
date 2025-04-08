@@ -25,10 +25,14 @@ poetry install
 poetry run python path_visual_xxx.py
 ```
 
-Below is an example of a path planned of point using RRT*:
+Below is an example of a path planned for a point robot using RRT*:
 
-![RRT Point Path Planning Visualization](./PointRRT.png)
+<p align="center">
+  <img src="./PointRRT.png" alt="RRT Point Path Planning Visualization" width="50%">
+</p>
 
-and example of a path planned of bicyle modle using RRT*:
+And an example of a path planned for a bicycle model using RRT*:
 
-![RRT Car Path Planning Visualization](./SimpleCarRRT.png)
+<p align="center">
+  <img src="./SimpleCarRRT.png" alt="RRT Car Path Planning Visualization" width="50%">
+</p>
